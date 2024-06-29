@@ -1,4 +1,6 @@
 #!/bin/bash
+
+#DISABLE_ILLEGAL_COMPONENTS=true
 DISABLE_ILLEGAL_COMPONENTS=false
 
 tolower(){
@@ -153,10 +155,10 @@ case $1 in
 		exit
 esac
 
-INC_OPENSSL=../openssl-1.0.2s/include
-INC_OPUS=../opus-1.1/include
-INC_SPEEX=../speex-1.2rc1/include
-INC_ZVBI=../zvbi-0.2.35/src
+INC_OPENSSL=../openssl1/include
+INC_OPUS=../opus/include
+INC_SPEEX=../speex/include
+INC_ZVBI=../zvbi/src
 INC_ICONV=../modified_src/iconv
 INC_MXV=../modified_src/mxv
 INC_MXD=../modified_src/mxd
@@ -165,7 +167,7 @@ INC_MODPLUG=../libmodplug/src
 INC_LIBMXL2=../libxml2/include
 INC_LIBSMB2=../libsmb2/include
 INC_LIBDAV1D=../dav1d/include
-INC_LIBMP3LAME=../lame-3.100
+INC_LIBMP3LAME=../lame
 
 
 TOOLCHAIN=$NDK/toolchains/llvm/prebuilt/$HOST_PLATFORM
@@ -301,6 +303,11 @@ FF_FEATURE_DEMUXER="\
 --disable-demuxer=vplayer \
 --disable-demuxer=webvtt \
 "
+
+# preserve deleted disabled features
+#
+#--disable-demuxer=ac3 --disable-demuxer=dts --disable-demuxer=eac3 --disable-demuxer=mlp --disable-demuxer=truehd
+
 FF_FEATURE_MUXER="\
 --disable-muxers \
 --enable-muxer=webvtt \

@@ -9,6 +9,7 @@ dist/
 
 # build logs
 config.log
+*.log
 
 # pre-built ffmpeg shared library
 libffmpeg.mx.so
