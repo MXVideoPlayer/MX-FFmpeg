@@ -1,6 +1,5 @@
 #!/bin/bash
-#DISABLE_ILLEGAL_COMPONENTS=false
-DISABLE_ILLEGAL_COMPONENTS=true
+DISABLE_ILLEGAL_COMPONENTS=false
 
 tolower(){
     echo "$@" | tr ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz
@@ -289,12 +288,8 @@ FF_FEATURE_CLASS="\
 --enable-libmp3lame \
 "
 FF_FEATURE_DEMUXER="\
---disable-demuxer=ac3 \
---disable-demuxer=dts \
---disable-demuxer=eac3 \
 --disable-demuxer=jacosub \
 --disable-demuxer=microdvd \
---disable-demuxer=mlp \
 --disable-demuxer=mpl2 \
 --disable-demuxer=pjs \
 --disable-demuxer=realtext \
@@ -303,7 +298,6 @@ FF_FEATURE_DEMUXER="\
 --disable-demuxer=stl \
 --disable-demuxer=subviewer \
 --disable-demuxer=subviewer1 \
---disable-demuxer=truehd \
 --disable-demuxer=vplayer \
 --disable-demuxer=webvtt \
 "
@@ -406,7 +400,8 @@ $EXTRA_PARAMETERS \
 EXTRA_CFLAGS+=" -I$INC_LIBMP3LAME -I$INC_ICONV -I$INC_MXV -I$INC_MXD -I$INC_USB -idirafter$INC_ZVBI -I$INC_OPENSSL -I$INC_OPUS -I$INC_SPEEX -I$INC_MODPLUG -I$INC_LIBMXL2 -I$INC_LIBSMB2 -I$INC_LIBDAV1D -DNDEBUG -DMXTECHS -DFF_API_AVPICTURE=1 -DCONFIG_MXV_FROM_MXVP=1 -DMXD_BUILTIN -ftree-vectorize -ffunction-sections -funwind-tables -fomit-frame-pointer -no-canonical-prefixes -pipe"
 EXTRA_LIBS=" -L$LIB_MX -lmxutil -lm -lc++_shared"
 
-./configure ${FFCOMPILER}                    \
+# Don't ask me why i need bash here when its already #!/bin/bash. This fixes ffmpeg ./configure: 1283: shift: can't shift that many
+bash ./configure ${FFCOMPILER}               \
             ${FFCOMMON}                      \
             ${FF_FEATURES}                   \
             ${FFMPEG_CONFIGURATION}          \

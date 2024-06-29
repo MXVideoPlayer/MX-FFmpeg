@@ -17,7 +17,7 @@ die(){
     exit 1
 }
 
-CPU_CORE=12
+. ENV # Environment
 
 # if [ $1 == 'tegra3' ]
 # then
@@ -32,7 +32,8 @@ rm compat/strtod.d
 rm compat/strtod.o
 
 echo "=====================CONFIGURE FFMPEG FOR $1====================="
-../config-ffmpeg.sh $1
+make distclean
+. ../config-ffmpeg.sh $1
 if test "$?" != 0; then 
     die "ERROR: failed to configure ffmpeg for $1"
 fi
@@ -41,7 +42,7 @@ make clean
 make -j$CPU_CORE
 cd ..
 
-./build.sh ffmpeg.mx build $1
+. build.sh ffmpeg.mx build $1
 if test "$?" != 0; then 
     die "ERROR: failed to build ffmpeg for $1"
 fi
