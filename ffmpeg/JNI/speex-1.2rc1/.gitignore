@@ -32,7 +32,6 @@ Speex.spec
 config.h
 config.log
 config.status
-include/speex/speex_config_types.h
 *.sw[lmnop]
 testenc
 testenc_uwb
