@@ -1,18 +1,23 @@
 //
 //  mxvdecoder.c
-//  FFmpeg-xcode
-//
-//  Created by Wang Shaoqi on 2020/2/3.
-//  Copyright © 2020 Wang Shaoqi. All rights reserved.
-//
-
-/**
- * @file
- * MXV file demuxer
- * @author Ronald Bultje <rbultje@ronald.bitfreak.net>
- * @author with a little help from Moritz Bunkus <moritz@bunkus.org>
- * @author totally reworked by Aurelien Jacobs <aurel@gnuage.org>
- * @see specs available on the MXV project page: http://www.mxv.org/
+/*
+ * downloadhttp.c
+ *
+ * This file is part of FFmpeg.
+ *
+ * FFmpeg is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * FFmpeg is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with FFmpeg; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
 #include "config.h"
